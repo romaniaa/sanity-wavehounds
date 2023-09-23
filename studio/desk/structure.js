@@ -1,0 +1,92 @@
+import S from '@sanity/desk-tool/structure-builder'
+import Iframe from 'sanity-plugin-iframe-pane'
+import resolveProductionUrl from "../resolveProductionUrl";
+
+export const getDefaultDocumentNode = ({schemaType}) => {
+    const customViews = [];
+    customViews.push(S.view.form())
+    if (schemaType === 'page') {
+        const preview = S.view
+                .component(Iframe)
+                .options({
+                    url: (doc) => resolveProductionUrl(doc),
+                })
+                .title('Preview')
+        customViews.push(preview)
+    }
+
+    return S.document().views(customViews)
+}
+
+export default () =>
+    S.list()
+        .title('Site')
+        .items([
+            S.listItem()
+                .title('Settings')
+                .child(
+                    S.list()
+                        // Sets a title for our new list
+                        .title('Settings')
+                        // Add items to the array
+                        // Each will pull one of our new singletons
+                        .items([
+                            S.listItem()
+                                .title('General')
+                                .child(
+                                    S.document()
+                                        .schemaType('siteSettings')
+                                        .documentId('siteSettings')
+                                ),
+                            S.listItem()
+                                .title('Navigation')
+                                .child(
+                                    S.documentList()
+                                        .title('Menus')
+                                        .schemaType('menu')
+                                        .filter('_type == $type')
+                                        .params({ type: 'menu' })
+                                ),
+
+                        ])
+                ),
+            S.listItem()
+                .title('Pages')
+                .child(
+                    S.documentList()
+                        .title('Pages')
+                        .schemaType('page')
+                        .filter('_type == $type')
+                        .params({ type: 'page' })
+                ),
+            S.listItem()
+                .title('News')
+                .child(
+                    S.list()
+                        .title('News')
+                        .items([
+                            S.listItem()
+                                .title('Posts')
+                                .child(
+                                    S.documentList()
+                                        .title('Posts')
+                                        .schemaType('post')
+                                        .filter('_type == $type')
+                                        .params({ type: 'post' })
+                                ),
+                            S.listItem()
+                                .title('Categories')
+                                .child(
+                                    S.documentList()
+                                        .title('Categories')
+                                        .schemaType('post.category')
+                                        .filter('_type == $type')
+                                        .params({ type: 'post.category' })
+                                ),
+
+                        ])
+
+                ),
+            // We also need to remove the new singletons from the main list
+            //...S.documentTypeListItems().filter(listItem => !['siteSettings', 'page'].includes(listItem.getId()))
+        ])
