@@ -1,9 +1,17 @@
-const slugify = require('slugify')
+import slugify from "slugify";
+import {DocumentIcon, ImageIcon} from '@sanity/icons'
+import {PageSlugInput} from "../components/PageSlugInput";
+
 
 export default {
     name: 'page',
     type: 'document',
     title: 'Page',
+    groups: [
+        {name: 'general', title: 'General', default: true},
+        {name: 'media', title: 'Media'},
+        {name: 'options', title: 'Options'},
+    ],
     fields: [
         {
             title: 'Page Title',
@@ -22,7 +30,12 @@ export default {
                 source: 'title',
                 slugify: input => slugify(input, {lower: true, strict: true})
             },
-            validation: Rule => Rule.required()
+            validation: Rule => Rule.required(),
+            description: "Provide a unique URL for this page, or click Generate to create one using the Page Title",
+            components: {
+                input: PageSlugInput
+            },
+            group: 'general'
         },
         {
             title: 'Parent page',
@@ -38,21 +51,33 @@ export default {
             fields: [{type: 'text', name: 'alt', title: 'Alternative text'}],
         },
         {
-            title: 'Content',
-            name: 'content',
+            title: 'Content Blocks',
+            name: 'blocks',
             type: 'array',
             of: [
-                {
-                    type: 'block'
-                },
+                {type:'photoPlusText'},
+                {type:'columnImages'},
+                {type:'content'},
+                {type:'button'},
+                {type:'accordions'},
                 {
                     type: 'image',
-                    fields: [{type: 'text', name: 'alt', title: 'Alternative text'}]
+                    name: 'image',
+                    title: 'Image',
+                    icon: ImageIcon,
+                    fieldsets: [
+                        {name: 'meta', title: 'Details', options: { collapsible: true, collapsed: true}}
+                    ],
+                    fields: [
+                        {type: 'string', name: 'caption', title: 'Image caption', fieldset: 'meta'},
+                        {type: 'string', name: 'alt', title: 'Alternative text', fieldset: 'meta'}
+                    ],
+                    options: {
+                        hotspot: true
+                    },
                 },
-                {
-                    type: 'customBlock'
-                }
             ],
+            group: 'general'
         },
         {
             title: "Metadata",

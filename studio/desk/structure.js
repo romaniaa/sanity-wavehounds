@@ -1,24 +1,22 @@
-import S from '@sanity/desk-tool/structure-builder'
+// import S from '@sanity/desk-tool/structure-builder'
 import Iframe from 'sanity-plugin-iframe-pane'
-import resolveProductionUrl from "../resolveProductionUrl";
+import resolveProductionUrl from "./resolveProductionUrl";
 
-export const getDefaultDocumentNode = ({schemaType}) => {
-    const customViews = [];
-    customViews.push(S.view.form())
-    if (schemaType === 'page') {
+export const defaultDocumentNode = (S, {schemaType}) => {
+    const views = [S.view.form()]
+    if (schemaType === 'page' || schemaType === 'post' ) {
         const preview = S.view
-                .component(Iframe)
-                .options({
-                    url: (doc) => resolveProductionUrl(doc),
-                })
-                .title('Preview')
-        customViews.push(preview)
+            .component(Iframe)
+            .options({
+                url: (document) => resolveProductionUrl(document)
+            })
+            .title('Preview')
+        views.push(preview)
     }
-
-    return S.document().views(customViews)
+    return S.document().views(views)
 }
 
-export default () =>
+export const structure = (S, context) =>
     S.list()
         .title('Site')
         .items([

@@ -1,5 +1,4 @@
-const slugify = require('slugify')
-
+import slugify from "slugify";
 export default {
     name: 'post',
     type: 'document',
@@ -56,7 +55,7 @@ export default {
                     fields: [{type: 'text', name: 'alt', title: 'Alternative text'}]
                 },
                 {
-                    type: 'customBlock'
+                    type: 'portableText'
                 }
             ]
         },

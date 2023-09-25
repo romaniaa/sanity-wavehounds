@@ -1,4 +1,4 @@
-const slugify = require('slugify')
+import slugify from "slugify";
 
 export default {
     name: 'post.category',
