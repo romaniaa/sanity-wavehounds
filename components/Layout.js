@@ -1,19 +1,24 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import MetaTitle from "./MetaTitle";
-import MetaDescription from "./MetaDescription";
+// import PreviewBar from "./PreviewBar";
+import MetaTags from "./MetaTags";
+import {useEffect} from "react";
+// import {useAppContext} from "./ContextWrapper";
+import Cursor from './Cursor'
 
-export default function Layout({children, menus, siteSettings, pageData}) {
-    const mainMenu = menus && menus.find(m => m.slug.current === 'main-menu')
+export default function Layout({children, preview, pageData }) {
+    console.log('children', children)
+
     return (
-        <div className={'h-full flex flex-col'}>
-            <MetaTitle pageTitle={pageData?.page?.title} siteTitle={siteSettings?.title} />
-            <MetaDescription description={pageData?.page?.description} />
-            <Header menu={mainMenu} />
-            <main className={'grow'}>
+        <div className={`font-sans body-1 h-full flex flex-col`}>
+            <MetaTags/>
+            {/* <PreviewBar preview={preview} /> */}
+            <Header/>
+            <main className={`grow relative`}>
                 {children}
             </main>
-            <Footer className={'w-full bg-gray-200 h-16 flex items-center shrink-0'}/>
+            <Footer/>
+            <Cursor/>
         </div>
     )
 }

@@ -1,17 +1,15 @@
-import VitalImage from "./blocks/VitalImage";
-import CustomBlock from "./blocks/CustomBlock";
-import {PortableText} from "@portabletext/react";
+import React from "react";
+import PageTemplate from "./templates/PageTemplate";
+import PostTemplate from "./templates/PostTemplate";
 
-export default function PageContent({page}) {
-    const components = {
-        types: {
-            image: VitalImage,
-            customBlock: CustomBlock
-        }
+function PageContent({data}) {
+
+    if (data?._type === 'page') {
+        return <PageTemplate page={data}  />
     }
-    return (
-        <>
-            {page?.content && <PortableText value={page.content} components={components}/>}
-        </>
-    )
+    if (data?._type === 'post') {
+        return <PostTemplate post={data} />
+    }
 }
+
+export default PageContent

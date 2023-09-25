@@ -1,3 +1,5 @@
+import docTypes from "../../lib/docTypes";
+
 export default function preview(req, res) {
     if (!req?.query?.secret) {
         return res.status(401).json({message: 'No secret token'})
@@ -9,16 +11,20 @@ export default function preview(req, res) {
         return res.status(401).json({message: 'Invalid secret token'})
     }
 
-    if (!req.query.slug) {
+    if (!req.query?.slug) {
         return res.status(401).json({message: 'No slug'})
     }
 
+    const slug = req?.query.slug
+
     // Enable Preview Mode by setting the cookies
-    res.setPreviewData({})
+    res.setPreviewData({token: process.env.SANITY_API_TOKEN})
+
+    const url = (req.query.type !== 'page') ? `/${docTypes[req.query.type].path}/${slug}` : `/${slug}`
 
     // Redirect to the path from the fetched post
     // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-    res.writeHead(307, {Location: `/${req?.query?.slug}` ?? `/`})
+    res.writeHead(307, {Location: url ?? `/`})
 
     return res.end()
 }
