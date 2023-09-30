@@ -5,19 +5,6 @@ import TwoImages from "./ColumnImages";
 import WhlLink from "./WhLink";
 
 export default function TextContent({value}) {
-    const {background} = value
-
-    let backgroundClass
-    switch(background) {
-        case 'orange':
-            backgroundClass = 'bg-orange-brand'
-            break;
-        case 'black':
-            backgroundClass = 'bg-black'
-            break;
-        default:
-            backgroundClass = 'bg-transparent'
-    }
 
     const components = {
         types: {
@@ -42,8 +29,8 @@ export default function TextContent({value}) {
     }
 
     return (
-        <div className={`py-40 laptop:py-70 ${backgroundClass} changes-background`}>
-            <div className={'container-wide space-y-24 laptop:[&>h2+p]:!mt-0 inverted:text-white'}>
+        <div className={`py-40 laptop:py-70`}>
+            <div className={'container-wide space-y-24 laptop:[&>h2+p]:!mt-0 dark:text-white light:text-dark-blue'}>
                 {value?.content && <PortableText value={value.content} components={components} />}
             </div>
         </div>

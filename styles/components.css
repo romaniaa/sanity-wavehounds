@@ -1,0 +1,22 @@
+
+.toggle-switch {
+
+	input[type="checkbox"] {
+		@apply hidden;
+
+		&:checked + .switch::before {
+      @apply translate-x-15 bg-white;
+		}
+
+		&:checked + .switch {
+      @apply bg-blue;
+		}
+	}
+
+	.switch {
+
+		&:before {
+      @apply bg-white absolute content-[''] left-4 top-4 w-12 h-12 rounded-full transition-all duration-300;
+		}
+	}
+}

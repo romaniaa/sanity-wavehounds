@@ -7,14 +7,13 @@ import {useEffect} from "react";
 import Cursor from './Cursor'
 
 export default function Layout({children, preview, pageData }) {
-    console.log('children', children)
 
     return (
-        <div className={`font-sans body-1 h-full flex flex-col`}>
+        <div className={`h-full flex flex-col`}>
             <MetaTags/>
             {/* <PreviewBar preview={preview} /> */}
             <Header/>
-            <main className={`grow relative`}>
+            <main className={`grow relative min-h-screen`}>
                 {children}
             </main>
             <Footer/>

@@ -2,7 +2,7 @@
     html,
     body,
     #__next {
-        @apply h-full;
+        @apply  light:bg-white dark:bg-dark-blue;
     }
 
     h1 {
@@ -10,6 +10,6 @@
     }
 
     a {
-        @apply text-blue-700 underline;
+        @apply light:text-dark-blue underline-offset-2 underline light:hover:text-blue dark:text-white dark:hover:text-red transition-colors duration-300;
     }
 }
