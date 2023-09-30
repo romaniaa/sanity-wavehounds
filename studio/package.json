@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "Overhaul Media <dev@overhaulmedia.com>",
+  "author": "Romaniaa <roman@romanhermens.com>",
   "license": "UNLICENSED",
   "scripts": {
     "start": "sanity start",

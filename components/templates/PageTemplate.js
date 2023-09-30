@@ -1,6 +1,6 @@
-import VitalImage from "../blocks/VitalImage";
+import WhImage from "../blocks/WhImage";
 import React, {useRef} from "react";
-import {useIntersectionObserver} from "../../lib/vital";
+import {useIntersectionObserver} from "../../lib/main";
 import PageBlocks from "../PageBlocks";
 import {useAppContext} from "../ContextWrapper";
 
@@ -25,7 +25,7 @@ export default function PageTemplate({page}) {
              {/*show the featured image hero on pages that have an image set*/}
             {page?.media?.asset && !page.hideTitle &&
                 <div className={'w-full h-screen max-h-[100svh] relative'} ref={hero}>
-                    <VitalImage value={page.media} sizes={'100vw'} fill className={'object-cover'} priority={true} />
+                    <WhImage value={page.media} sizes={'100vw'} fill className={'object-cover'} priority={true} />
                     <div className={'absolute w-full h-full bg-black/15'}></div>
                     <div className="flex flex-col justify-end absolute w-full h-full pb-24">
                         {page?.title && <h1 className={'container-wide text-white'}>{page.title}</h1>}

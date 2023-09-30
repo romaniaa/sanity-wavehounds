@@ -1,18 +1,18 @@
-import VitalImage from "../blocks/VitalImage";
+import WhImage from "../blocks/WhImage";
 import {PortableText} from "@portabletext/react";
 import React from "react";
 import PostDate from "../PostDate";
 import Button from "../blocks/Button";
-import VitalLink from "../blocks/VitalLink";
+import WhLink from "../blocks/WhLink";
 
 export default function PostTemplate({post}) {
 
     const components = {
         types: {
-            image: ({value}) => <VitalImage value={value} className={'w-full'} />,
+            image: ({value}) => <WhImage value={value} className={'w-full'} />,
         },
         marks: {
-            link: ({value, children}) => <VitalLink value={value}>{children}</VitalLink>
+            link: ({value, children}) => <WhLink value={value}>{children}</WhLink>
         }
     }
 
@@ -34,7 +34,7 @@ export default function PostTemplate({post}) {
             {post?.media?.asset &&
                 <div className={'flex flex-col laptop:flex-row container-wide'}>
                     <div className={'w-full laptop:w-1/2'}>
-                        <VitalImage value={post.media} sizes={'(max-width: 1024px) 100vw, (max-width: 1920px) 50vw, 910px'} className={'w-full'} priority={true} captionClass={'w-full laptop:w-10/12'} />
+                        <WhImage value={post.media} sizes={'(max-width: 1024px) 100vw, (max-width: 1920px) 50vw, 910px'} className={'w-full'} priority={true} captionClass={'w-full laptop:w-10/12'} />
                     </div>
                     <div className={'w-full laptop:w-1/2 laptop:pl-24 mt-24 laptop:mt-0'}>
                         {postContent}

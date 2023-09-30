@@ -1,5 +1,5 @@
 import React, {lazy} from 'react'
-import {getGlobalProps, getStaticPagePaths, preparePageData} from "../lib/vital";
+import {getGlobalProps, getStaticPagePaths, preparePageData} from "../lib/main";
 import {PreviewSuspense} from 'next-sanity/preview'
 import PageContent from "../components/PageContent";
 import {sanityClient} from '../lib/sanity.client'

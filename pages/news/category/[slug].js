@@ -1,4 +1,4 @@
-import {getGlobalProps} from "../../../lib/vital";
+import {getGlobalProps} from "../../../lib/main";
 import Link from "next/link";
 import newsPost from "../../../lib/newsPost";
 

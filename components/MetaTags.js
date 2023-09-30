@@ -1,7 +1,7 @@
 import Head from "next/head"
 import newsPost from "../lib/newsPost";
 import { urlFor } from "../lib/sanity";
-import { buildPermalink } from "../lib/vital";
+import { buildPermalink } from "../lib/main";
 import {useAppContext} from "./ContextWrapper";
 import MetaTitle from "./MetaTitle";
 import MetaDescription from "./MetaDescription";
@@ -36,7 +36,7 @@ export default function MetaTags() {
             <MetaKeywords/>
             <Head>
                 {pageData?.slug && <link rel="canonical" href={pageUrl(pageData)}/>}
-                <meta property="og:site_name" content={siteSettings?.siteTitle || 'Sanity Vital'} />
+                <meta property="og:site_name" content={siteSettings?.siteTitle || 'Wavehounds x Sanity'} />
                 { pageData?.slug && <meta property="og:url" content={pageUrl(pageData)} />}
                 { pageData?.title && <meta property="og:title" content={pageData.title} />}
                 { description && <meta property="og:description" content={description} />}

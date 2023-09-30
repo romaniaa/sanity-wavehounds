@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {buildPermalink} from "../lib/vital";
+import {buildPermalink} from "../lib/main";
 
 export default function MenuLink({link, className}) {
     return (

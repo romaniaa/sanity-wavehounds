@@ -2,7 +2,7 @@
 
 import {usePreview} from '../lib/sanity.preview'
 import PageContent from "./PageContent";
-import {preparePageData} from "../lib/vital";
+import {preparePageData} from "../lib/main";
 import {useState} from "react";
 import {useAppContext} from "./ContextWrapper";
 

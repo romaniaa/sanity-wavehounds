@@ -1,7 +1,7 @@
 import {urlFor} from "../../lib/sanity";
 import NextImage from "next/image";
 
-export default function VitalImage({value, sizes, fill, priority, className}) {
+export default function WhImage({value, sizes, fill, priority, className}) {
 
     if (!value.asset) return null
 

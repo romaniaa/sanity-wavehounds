@@ -1,4 +1,4 @@
-import {buildPermalink} from "../../lib/vital";
+import {buildPermalink} from "../../lib/main";
 import Link from "next/link";
 import React from "react";
 

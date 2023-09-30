@@ -1,6 +1,6 @@
 import React, {lazy} from 'react'
 import PageContent from "../../components/PageContent";
-import {getGlobalProps, preparePageData} from "../../lib/vital";
+import {getGlobalProps, preparePageData} from "../../lib/main";
 import {getPaths, getPostQuery} from '../../lib/newsPost'
 import {sanityClient} from "../../lib/sanity.client";
 import {PreviewSuspense} from "next-sanity/preview";

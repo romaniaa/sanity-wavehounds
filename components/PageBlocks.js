@@ -1,4 +1,4 @@
-import {renderBlock} from "../lib/vital";
+import {renderBlock} from "../lib/main";
 import {useAppContext} from "./ContextWrapper";
 
 export default function PageBlocks({blocks}) {

@@ -1,8 +1,8 @@
-import {buildPermalink} from "../../lib/vital";
+import {buildPermalink} from "../../lib/main";
 import Link from "next/link";
 import React from "react";
 
-export default function VitalLink({value, children}) {
+export default function WhLink({value, children}) {
     if (value.custom) {
         return <a href={value.customUrl} className={'underline'}>{children}</a>
     }

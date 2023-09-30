@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {useCursorType, useMousePosition} from "../lib/vital";
+import {useCursorType, useMousePosition} from "../lib/main";
 
 
 export default function Cursor () {

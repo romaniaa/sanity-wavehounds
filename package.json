@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:overhaul/wavehounds-sanity.git"
+    "url": "git@github.com:romaniaa/sanity-wavehounds.git"
   },
-  "author": "Overhaul Media <dev@overhaulmedia.com>",
+  "author": "Roman <roman@romanhermens.com>",
   "license": "UNLICENSED",
   "dependencies": {
     "@portabletext/react": "^2.0.0",
