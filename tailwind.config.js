@@ -71,10 +71,7 @@ module.exports = {
                 mobile: '0px',
                 tablet: '640px',
                 laptop: '1024px',
-                'laptop-lg': '1280px',
                 desktop: '1366px',
-                'desktop-lg': '1440px',
-                'desktop-xl': '1680px',
                 large: '1920px',
                 huge: '2400px'
             },
@@ -82,6 +79,9 @@ module.exports = {
                 none: '0px',
                 DEFAULT: '4px',
                 full: '9999px',
+            },
+            fontFamily: {
+                sans:'"Manrope", sans-serif;'
             }
         }
     },

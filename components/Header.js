@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import MenuLink from './MenuLink';
-import { useAppContext } from './ContextWrapper';
-import DarkModeToggle from './DarkMode';
+import AppContext, { useAppContext } from './ContextWrapper';
+import DarkModeToggle from './DarkModeToggle';
+import MenuBurger from './MenuBurger';
 
 export default function Header() {
   const { pageProps } = useAppContext();
   const { mainMenu } = pageProps;
+  const app = useContext(AppContext)
+
+  const { isOpen, isOpening } = useAppContext();
 
   // State to track dark mode status
   const [isDarkMode, setIsDarkMode] = useState(
@@ -19,30 +23,37 @@ export default function Header() {
   };
 
   return (
-    <header className={'w-full p-20flex items-center shrink-0 light:bg-white dark:bg-dark-blue'}>
-      <div className={'mr-10'}>
-        <Link href={'/'}>Logo</Link>
+    <header className={'w-full p-20 flex items-center shrink-0 light:bg-white dark:bg-dark-blue'}>
+      <MenuBurger/>
+      <div className={`
+        ${isOpening ? 'skew-x-0 delay-100' : '-skew-x-12' }
+        ${isOpen ? '-translate-x-[420px]' : 'translate-x-[420px]'}
+        fixed w-[420px] -right-[420px] top-0 h-screen dark:bg-white light:bg-blue z-40 transition-all duration-300`}
+        >
+        <div className={'mr-10'}>
+          <Link href={'/'}>Logo</Link>
+        </div>
+        <nav>
+          {mainMenu && mainMenu.links && (
+            <ul className={'space-y-20 flex flex-col px-40 mt-90'}>
+              {mainMenu.links.map((link) => (
+                <li key={link._key}>
+                  {
+                  <MenuLink 
+                    link={link} 
+                    className={'no-underline dark:text-dark-blue light:text-white light:hover:text-dark-blue heading-2 text-bold'} 
+                  />
+                  }
+                </li>
+              ))}
+            </ul>
+          )}
+        </nav>
+        <DarkModeToggle
+          isDarkMode={isDarkMode}
+          toggleDarkMode={toggleDarkMode}
+        />
       </div>
-      <nav>
-        {/* top level links */}
-        {mainMenu && mainMenu.links && (
-          <ul className={'space-x-8 flex flex-row'}>
-            {mainMenu.links.map((link) => (
-              <li key={link._key}>
-                <MenuLink link={link} className={'no-underline dark:text-white light:text-dark-blue'} />
-                {/* there are no child links in this design */}
-              </li>
-            ))}
-          </ul>
-        )}
-        {/* end top level links */}
-      </nav>
-
-      {/* Render the DarkModeToggle component */}
-      <DarkModeToggle
-        isDarkMode={isDarkMode}
-        toggleDarkMode={toggleDarkMode}
-      />
     </header>
   );
 }

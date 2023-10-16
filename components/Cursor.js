@@ -3,13 +3,12 @@ import {useCursorType, useMousePosition} from "../lib/main";
 
 
 export default function Cursor () {
-    const {isHover, isMenu, isOrangeBlock} = useCursorType()
+    const {isHover, isMenu, isOrangeBlock, slug: cursorSlug, text: cursorText} = useCursorType()
     const { x, y } = useMousePosition()
-
     const ssr = typeof window === 'undefined'
 
-    const defaultClass = `${!isOrangeBlock ? 'bg-orange-brand' : 'bg-black'} border-transparent scale-100 ${!isMenu ? 'inverted-orange:bg-black' : ''}`
-    const hoverClass = `${!isOrangeBlock ? 'border-orange-brand' : 'border-black'} bg-transparent scale-150 ${!isMenu ? 'inverted-orange:border-black' : ''}`
+    const defaultClass = `${!isOrangeBlock ? 'bg-red' : ''} border-transparent ${!isMenu ? 'here' : ''}`
+    const hoverClass = `${!isOrangeBlock ? 'border-red' : 'border-black'} bg-transparent scale-150 ${!isMenu ? 'inverted-orange:border-black' : ''}`
     const cursorClass = isHover ? hoverClass : defaultClass
     const [showCursor, setShowCursor] = useState(false)
 
@@ -29,14 +28,20 @@ export default function Cursor () {
         <>
             {showCursor &&
                 <div
-                    className={'fixed top-0 left-0 w-32 h-32 z-[9999] pointer-events-none'}
+                    className={`fixed top-0 left-0  z-[9999] pointer-events-none `}
                     style={{transform: `translate3d(${x}px, ${y}px, 0) translate3d(-50%, -50%, 0)`}}
-                >
-                    <div className={`hidden laptop:block absolute top-0 left-0 w-full h-full rounded-full border transform-all duration-300 ${cursorClass} `}></div>
+                  >
+                    <div 
+                      className={`${ cursorText ? 'w-50 h-50' : 'w-12 h-12'} ${cursorClass} hidden laptop:flex justify-center items-center absolute text-[10px] text-white leading-[12px] top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%] rounded-full border transition-all duration-300 text-center`}
+                      >
+                        <div className={`${ cursorText ? 'translate-y-0 opacity-100' : 'translate-y-15 opacity-0'} transition-all duration-300 delay-150`}>
+                        { cursorText ? cursorText : ''}
+                        </div>
+                      
+                    </div>
                 </div>
             }
         </>
     )
-
-
 }
+

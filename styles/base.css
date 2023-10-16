@@ -2,14 +2,21 @@
     html,
     body,
     #__next {
-        @apply  light:bg-white dark:bg-dark-blue;
+        @apply  light:bg-white dark:bg-dark-blue font-sans tracking-wide;
     }
 
     h1 {
-        @apply text-5xl;
+        @apply text-9xl font-bold;
+    }
+
+    h2, .heading-2 {
+        @apply text-4xl font-bold;
     }
 
     a {
         @apply light:text-dark-blue underline-offset-2 underline light:hover:text-blue dark:text-white dark:hover:text-red transition-colors duration-300;
+    }
+    .container-wide {
+        @apply max-w-[1000px] w-full mx-auto px-20 laptop:px-0;
     }
 }

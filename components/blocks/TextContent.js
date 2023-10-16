@@ -2,6 +2,7 @@ import {PortableText} from "@portabletext/react";
 import WhlImage from "./WhImage";
 import Button from "./Button";
 import TwoImages from "./ColumnImages";
+import ScrollTitle from "../ScollTitle";
 import WhlLink from "./WhLink";
 
 export default function TextContent({value}) {
@@ -13,6 +14,7 @@ export default function TextContent({value}) {
             twoImages: ({value}) => <div className={'py-24 laptop:py-50'}><TwoImages value={value} /></div>
         },
         block: {
+            h1: ({children}) => <ScrollTitle title={children}></ScrollTitle>,
             h2: ({children}) => <h2 className={'laptop:mr-1/2 laptop:h-0 laptop:overflow-visible'}>{children}</h2>,
             normal: ({children}) => <p className={'laptop:ml-1/2'}>{children}</p>,
             blockquote: ({children}) =>
