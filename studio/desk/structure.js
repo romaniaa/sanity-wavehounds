@@ -58,10 +58,10 @@ export const structure = (S, context) =>
                         .params({ type: 'page' })
                 ),
             S.listItem()
-                .title('News')
+                .title('Work')
                 .child(
                     S.list()
-                        .title('News')
+                        .title('Work')
                         .items([
                             S.listItem()
                                 .title('Posts')

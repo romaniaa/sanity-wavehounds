@@ -42,23 +42,23 @@ export default {
             type: 'image',
             fields: [{type: 'text', name: 'alt', title: 'Alternative text'}],
         },
-        {
-            title: 'Content',
-            name: 'content',
-            type: 'array',
-            of: [
-                {
-                    type: 'block'
-                },
-                {
-                    type: 'image',
-                    fields: [{type: 'text', name: 'alt', title: 'Alternative text'}]
-                },
-                {
-                    type: 'portableText'
-                }
-            ]
-        },
+        // {
+        //     title: 'Content',
+        //     name: 'content',
+        //     type: 'array',
+        //     of: [
+        //         {
+        //             type: 'block'
+        //         },
+        //         {
+        //             type: 'image',
+        //             fields: [{type: 'text', name: 'alt', title: 'Alternative text'}]
+        //         },
+        //         {
+        //             type: 'portableText'
+        //         }
+        //     ]
+        // },
         {
             title: "Metadata",
             name: "metadata",

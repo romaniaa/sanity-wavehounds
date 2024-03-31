@@ -60,6 +60,7 @@ export default {
                 {type:'content'},
                 {type:'button'},
                 {type:'accordions'},
+                {type:'latestProjects'},
                 {
                     type: 'image',
                     name: 'image',
