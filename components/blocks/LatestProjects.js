@@ -8,7 +8,6 @@ export default function LatestProjects({value}) {
     const {latest, perPage, heading} = value
     const grid = useRef(null)
     const ssr = typeof window === 'undefined'
-    console.log(value)
 
     const [page, setPage] = useState(1)
 
