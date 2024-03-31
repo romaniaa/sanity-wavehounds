@@ -1,32 +1,27 @@
 {
   "name": "wavehounds-sanity",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "description": "",
   "scripts": {
-    "dev": "concurrently \"next dev\" \"cd studio && npm run dev\"",
-    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build && next start",
+    "dev": "concurrently \"next dev\" \"cd studio && sanity start\"",
+    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
     "lint": "next lint",
     "postinstall": "lerna bootstrap"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:romaniaa/sanity-wavehounds.git"
+    "url": "git@github.com:overhaul/wavehounds-sanity.git"
   },
-  "author": "Roman <roman@romanhermens.com>",
+  "author": "Overhaul Media <dev@overhaulmedia.com>",
   "license": "UNLICENSED",
   "dependencies": {
     "@portabletext/react": "^2.0.0",
     "@sanity/asset-utils": "^1.3.0",
-    "@sanity/client": "^6.4.12",
-    "@sanity/core": "^2.36.2",
     "@sanity/image-url": "^1.0.1",
-    "@sanity/preview-kit": "^3.1.6",
     "@sanity/webhook": "^2.0.0",
-    "groq": "^3.2.5",
-    "gsap": "^3.12.2",
     "next": "^13.0.4",
-    "next-sanity": "^4.1.1",
+    "next-sanity": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
