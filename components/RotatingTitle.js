@@ -28,8 +28,8 @@ const RotatingTitle = ({ title }) => {
   }, []);
 
   return (
-    <div className="laptop:ml-1/2 absolute w-[272px]">
-      <svg ref={circleRef} className="block absolute top-[-100px] left-[-70px] w-[180px] h-[180px] laptop:top-[-136px] laptop:left-[-240px] laptop:w-[272px] laptop:h-[272px]" viewBox="0 0 272 272" xmlns="http://www.w3.org/2000/svg">
+    <div className="laptop:ml-1/2 relative w-[272px]">
+      <svg ref={circleRef} className="block absolute top-[-55px] left-[-62px] w-[120px] h-[120px] laptop:top-[-136px] laptop:left-[-140px] laptop:w-[272px] laptop:h-[272px]" viewBox="0 0 272 272" xmlns="http://www.w3.org/2000/svg">
         <path id="curve" d="M0,136a136,136 0 1,0 272,0a136,136 0 1,0 -272,0" fill="transparent"/>
         <text className="uppercase heading-3 tracking-[0.5em] dark:fill-light-blue light:fill-red">
           <textPath xlinkHref="#curve">
