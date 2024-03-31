@@ -5,7 +5,7 @@
   "description": "",
   "scripts": {
     "dev": "concurrently \"next dev\" \"cd studio && npm run dev\"",
-    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next dev && next build",
+    "build": "echo 'Building Sanity to public/studio' && cd studio && sanity build ../public/studio -y && cd .. && next build",
     "lint": "next lint",
     "postinstall": "lerna bootstrap"
   },
