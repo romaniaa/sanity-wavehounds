@@ -1,7 +1,7 @@
 import React, {lazy} from 'react'
 import PageContent from "../../components/PageContent";
 import {getGlobalProps, preparePageData} from "../../lib/main";
-import {getPaths, getPostQuery} from '../../lib/newsPost'
+import {getPaths, getPostQuery} from '../../lib/workPost'
 import {sanityClient} from "../../lib/sanity.client";
 import {PreviewSuspense} from "next-sanity/preview";
 
@@ -31,6 +31,7 @@ export async function getStaticProps({params, preview = false, previewData = {}}
             }
         }
     }
+    
     const data = await sanityClient.fetch(getPostQuery(), queryParams)
     if (!data || data.length === 0) return {notFound: true}
 

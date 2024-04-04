@@ -20,7 +20,7 @@ export default function PostTemplate({post}) {
         <div className="space-y-24 inverted:text-white">
             {post?.publishDate && <PostDate date={post.publishDate} className={'block text-grey-brand'} />}
             {post?.content && <PortableText value={post.content} components={components} />}
-            {post?.indexPage && <Button value={{ style: 'outlined', target:post.indexPage, label: 'Back to All News' }} />}
+            {post?.indexPage && <Button value={{ style: 'outlined', target:post.indexPage, label: 'Back to All Work' }} />}
         </div>
     )
 

@@ -1,5 +1,5 @@
 import Head from "next/head"
-import newsPost from "../lib/newsPost";
+import workPost from "../lib/workPost";
 import { urlFor } from "../lib/sanity";
 import { buildPermalink } from "../lib/main";
 import {useAppContext} from "./ContextWrapper";
@@ -22,8 +22,8 @@ export default function MetaTags() {
             return siteUrl
 
         switch(data._type) {
-            case 'NewsCategory':
-                return siteUrl + newsPost.buildCategoryPermalink(data.category);
+            case 'WorkCategory':
+                return siteUrl + workPost.buildCategoryPermalink(data.category);
             default:
                 return siteUrl + buildPermalink(data);
         }

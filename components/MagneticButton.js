@@ -63,8 +63,8 @@ const MagneticButton = ({ link, title }) => {
   }, []);
 
   return (
-    <div className="magnetic-button h-40 max-w-[200px] flex relative" ref={buttonRef}>
-      <span ref={textRef} className="h-50 max-w-[200px] absolute">
+    <div className={'magnetic-button h-40 max-w-[200px] flex relative'} ref={buttonRef}>
+      <span ref={textRef} className={'h-50 max-w-[200px] absolute'}>
         {title}
       </span>
     </div>

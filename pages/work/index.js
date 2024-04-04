@@ -1,13 +1,13 @@
 import {getGlobalProps} from "../../lib/main";
 import Link from "next/link";
-import newsPost from "../../lib/newsPost";
+import workPost from "../../lib/workPost";
 
 export async function getStaticProps() {
     const globalProps = await getGlobalProps()
-    const posts = await newsPost.getAll()
+    const posts = await workPost.getAll()
     const pageData = {
         page: {
-            title: newsPost.title
+            title: workPost.title
         }
     }
     return {
@@ -22,11 +22,11 @@ export async function getStaticProps() {
 export default function Index({posts}) {
     return (
         <>
-            <h1>{newsPost.title}</h1>
+            <h1>{workPost.title}</h1>
             <ul>
                 {posts && posts.map(post => (
                     <li key={post._id}>
-                        <Link href={newsPost.buildPermalink(post)}>{post.title}</Link>
+                        <Link href={workPost.buildPermalink(post)}>{post.title}</Link>
                     </li>
                 ))}
             </ul>

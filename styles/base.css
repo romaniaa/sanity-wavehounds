@@ -13,6 +13,10 @@
         @apply text-4xl font-bold;
     }
 
+    h3, .heading-3 {
+        @apply text-3xl font-bold;
+    }
+
     a {
         @apply light:text-dark-blue underline-offset-2 underline light:hover:text-blue dark:text-white dark:hover:text-red transition-colors duration-300;
     }

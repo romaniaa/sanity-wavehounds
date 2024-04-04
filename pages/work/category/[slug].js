@@ -1,9 +1,9 @@
 import {getGlobalProps} from "../../../lib/main";
 import Link from "next/link";
-import newsPost from "../../../lib/newsPost";
+import workPost from "../../../lib/workPost";
 
 export async function getStaticPaths() {
-    const paths = await newsPost.getCategoryPaths()
+    const paths = await workPost.getCategoryPaths()
     return {
         paths,
         fallback: false,
@@ -13,12 +13,12 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
     const globalProps = await getGlobalProps()
-    const posts = await newsPost.getCategoryPosts(params.slug)
-    const category = await newsPost.getCategory(params.slug)
+    const posts = await workPost.getCategoryPosts(params.slug)
+    const category = await workPost.getCategory(params.slug)
 
     const pageData = {
         page: {
-            title: `${newsPost.title} ${category.title}`
+            title: `${workPost.title} ${category.title}`
         }
     }
     return {
@@ -40,7 +40,7 @@ export default function Index({posts, category}) {
             <ul>
                 {posts && posts.map(post => (
                     <li key={post._id}>
-                        <Link href={newsPost.buildPermalink(post)}>{post.title}</Link>
+                        <Link href={workPost.buildPermalink(post)}>{post.title}</Link>
                     </li>
                 ))}
             </ul>
