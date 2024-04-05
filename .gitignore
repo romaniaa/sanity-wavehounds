@@ -7,3 +7,5 @@ node_modules
 public/studio
 studio/dist
 studio/.sanity
+studio/package-lock.json
+package-lock.json
