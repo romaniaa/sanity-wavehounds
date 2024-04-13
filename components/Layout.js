@@ -6,7 +6,7 @@ import Cursor from './Cursor'
 export default function Layout({ children, preview, pageData }) {
 
   return (
-    <div className={`h-full flex flex-col cursor-none`}>
+    <div className={`h-full flex flex-col cursor-none overflow-x-hidden w-full `}>
         <MetaTags />
         <Cursor/>
         <Header />

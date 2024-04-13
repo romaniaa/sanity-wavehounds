@@ -41,7 +41,7 @@ export default function Header() {
                   {
                   <MenuLink 
                     link={link} 
-                    className={'no-underline dark:text-dark-blue light:text-white light:hover:text-dark-blue heading-2 text-bold'} 
+                    className={'no-underline dark:text-dark-blue light:text-white dark:hover:text-dark-blue light:hover:text-white heading-2 text-bold'} 
                   />
                   }
                 </li>
