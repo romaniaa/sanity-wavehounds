@@ -6786,7 +6786,7 @@ style-value-types@5.0.0:
     hey-listen "^1.0.8"
     tslib "^2.1.0"
 
-"styled-components@^5.2 || ^6", "styled-components@^5.2 || ^6.0.0", styled-components@^6, styled-components@^6.0.0, styled-components@^6.1:
+"styled-components@^5.2 || ^6", "styled-components@^5.2 || ^6.0.0", styled-components@^6, styled-components@^6.1:
   version "6.1.8"
   resolved "https://registry.npmjs.org/styled-components/-/styled-components-6.1.8.tgz"
   integrity sha512-PQ6Dn+QxlWyEGCKDS71NGsXoVLKfE1c3vApkvDYS5KAK+V8fNWGhbSUEo9Gg2iaID2tjLXegEW3bZDUGpofRWw==

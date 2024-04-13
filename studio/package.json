@@ -29,6 +29,6 @@
     "sanity-plugin-iframe-pane": "^2.1.1",
     "sanity-plugin-mux-input": "^2.2.3",
     "slugify": "^1.6.5",
-    "styled-components": "^6.0.0"
+    "styled-components": "^6.1"
   }
 }
