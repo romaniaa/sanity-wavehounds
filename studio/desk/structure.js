@@ -85,6 +85,34 @@ export const structure = (S, context) =>
                         ])
 
                 ),
+                S.listItem()
+                .title('Work')
+                .child(
+                    S.list()
+                        .title('Work')
+                        .items([
+                            S.listItem()
+                                .title('Posts')
+                                .child(
+                                    S.documentList()
+                                        .title('Posts')
+                                        .schemaType('project')
+                                        .filter('_type == $type')
+                                        .params({ type: 'project' })
+                                ),
+                            S.listItem()
+                                .title('Categories')
+                                .child(
+                                    S.documentList()
+                                        .title('Categories')
+                                        .schemaType('project.category')
+                                        .filter('_type == $type')
+                                        .params({ type: 'project.category' })
+                                ),
+
+                        ])
+
+                ),
             // We also need to remove the new singletons from the main list
             //...S.documentTypeListItems().filter(listItem => !['siteSettings', 'page'].includes(listItem.getId()))
         ])
