@@ -14,7 +14,7 @@ export default function ContextWrapper({ value, children }) {
   };
 
   return (
-    <AppContext.Provider value={{ pageProps: value, header, ssr, isOpen, isOpening, toggleMenu }}>
+    <AppContext.Provider value={{ pageProps: value, header, ssr, isOpen, isOpening, toggleMenu, setIsOpen }}>
       {children}
     </AppContext.Provider>
   );

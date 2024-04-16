@@ -34,7 +34,7 @@ export default {
             title: 'Category',
             name: 'category',
             type: 'reference',
-            to: [{type: 'post.category'}],
+            to: [{type: 'project.category'}],
         },
         {
             title: 'Featured Photo',

@@ -20,6 +20,8 @@ import content from './content';
 import photoPlusText from './photoPlusText';
 import link from './link';
 import latestProjects from "./latestProjects";
+import project from './project';
+import projectCategory from './projectCategory';
 
 // Then we give our schema to the builder and provide the result to Sanity
 // export default ({
@@ -50,6 +52,8 @@ export default [
     page,
     post,
     postCategory,
+    project,
+    projectCategory,
     portableText,
     menu,
     menuLink,

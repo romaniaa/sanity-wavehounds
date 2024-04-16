@@ -14,7 +14,7 @@ export default function LatestProjects({value}) {
     const loadMore = () => {
         setPage(page + 1)
     }
-console.log('value', value)
+console.log('value', latest)
     return (
         <div className={'container-wide my-py laptop:my-py'}>
             {heading && <h2 className={'my-24 laptop:my-50'}>{heading}</h2>}
@@ -26,7 +26,7 @@ console.log('value', value)
                     if (i+1 <= page * perPage) {
                         return (
                             <div key={item._id} className={`grid-item w-1/2 laptop:w-1/3 mb-24 laptop:mb-30 px-8 laptop:px-12`}>
-                                {item._type === 'post' &&
+                                {item._type === 'project' &&
                                 <>
                                 {console.log('item', item)}
                                     <ProjectCard project={item} label={'Project'} imageSizes={'(max-width: 1024px) 50vw, (max-width: 1920px) 33vw, 590px'} />

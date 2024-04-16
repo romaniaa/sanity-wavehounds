@@ -4,7 +4,7 @@ import resolveProductionUrl from "./resolveProductionUrl";
 
 export const defaultDocumentNode = (S, {schemaType}) => {
     const views = [S.view.form()]
-    if (schemaType === 'page' || schemaType === 'post' ) {
+    if (schemaType === 'page' || schemaType === 'post' || schemaType === 'project' ) {
         const preview = S.view
             .component(Iframe)
             .options({
@@ -85,17 +85,17 @@ export const structure = (S, context) =>
                         ])
 
                 ),
-                S.listItem()
+            S.listItem()
                 .title('Work')
                 .child(
                     S.list()
                         .title('Work')
                         .items([
                             S.listItem()
-                                .title('Posts')
+                                .title('Projects')
                                 .child(
                                     S.documentList()
-                                        .title('Posts')
+                                        .title('Projects')
                                         .schemaType('project')
                                         .filter('_type == $type')
                                         .params({ type: 'project' })
