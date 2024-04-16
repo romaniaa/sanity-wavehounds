@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useAppContext } from './ContextWrapper';
 
-
 export default function MenuBurger() {
 
   const { isOpen, toggleMenu } = useAppContext();
