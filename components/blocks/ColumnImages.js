@@ -11,7 +11,6 @@ export default function TwoImages({value}) {
 	useEffect(() => {
 		if (imageRef.current) {
 			const skewRef = [imageRef];
-			console.log("skewRef", skewRef);
 		}
 	}, []);
 	
