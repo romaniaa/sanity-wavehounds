@@ -21,7 +21,6 @@ const SkewImage = ({ children }) => {
         scrub: true,
         onUpdate({ getVelocity }) {
           const velocity = getVelocity();
-		  console.log('velocity', velocity)
           if (Math.abs(velocity) > 500) {
             gsap.to(domElement, {
               skewY: `${velocity / 600}deg`
