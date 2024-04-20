@@ -1,6 +1,6 @@
 {
-  "name": "wavehounds-sanity",
-  "version": "1.0.0",
+  "name": "sanity-wavehounds",
+  "version": "0.0.0",
   "private": true,
   "description": "",
   "scripts": {
@@ -18,25 +18,22 @@
   "dependencies": {
     "@portabletext/react": "^2.0.0",
     "@sanity/asset-utils": "^1.3.0",
-    "@sanity/client": "^6.4.12",
     "@sanity/image-url": "^1.0.1",
-    "@sanity/preview-kit": "^3.1.6",
     "@sanity/webhook": "^2.0.0",
-    "groq": "^3.2.5",
-    "gsap": "^3.12.2",
-    "next": "^13.0.4",
+    "next": "^13.1.5",
     "next-sanity": "^4.1.1",
+    "gsap": "^3.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.35.0",
+    "@sanity/cli": "^3.15.0",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.5.0",
     "eslint": "^8.27.0",
     "eslint-config-next": "13.0.3",
     "lerna": "^6.0.3",
-    "postcss": "^8.4.19",
+    "postcss": "^8.4.28",
     "postcss-import": "^15.0.0",
     "tailwindcss": "^3.2.4"
   }
