@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
-const MagneticButton = ({ children }) => {
+const MagneticButton = ({ children, resetToCenter }) => {
   const buttonRef = useRef();
   const contentRef = useRef();
 
@@ -18,18 +18,13 @@ const MagneticButton = ({ children }) => {
       const cursorX = e.clientX;
       const cursorY = e.clientY;
 
-      // Calculate the distance between the cursor and the button's center
       const deltaX = buttonCenterX - cursorX;
       const deltaY = buttonCenterY - cursorY;
       const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
 
-      // Define the maximum distance to trigger the magnetic effect
-      const maxDistance = 200;
-
-      // Normalize the movement based on the distance
+      const maxDistance = 10;
       const movementScale = Math.min(distance / maxDistance, 1);
 
-      // Use GSAP to animate the content's movement
       gsap.to(contentElement, {
         duration: 0.3,
         x: (50 * (deltaX / distance)) * movementScale,
@@ -38,18 +33,27 @@ const MagneticButton = ({ children }) => {
     };
 
     const handleMouseOut = () => {
-      // Use GSAP to animate the content's return to its original position
+      let targetX = originalPosition.x;
+      let targetY = originalPosition.y;
+
+      if (resetToCenter) {
+        const buttonRect = button.getBoundingClientRect();
+        const contentRect = contentElement.getBoundingClientRect();
+
+        targetX = (buttonRect.width - contentRect.width) / 2;
+        targetY = (buttonRect.height - contentRect.height) / 2;
+      }
+
       gsap.to(contentElement, {
         duration: 0.3,
-        x: originalPosition.x,
-        y: originalPosition.y,
+        x: targetX,
+        y: targetY,
       });
     };
 
     button.addEventListener('mousemove', handleMouseMove);
     button.addEventListener('mouseout', handleMouseOut);
 
-    // Save the original position when the component mounts
     originalPosition.x = contentElement.offsetLeft;
     originalPosition.y = contentElement.offsetTop;
 
@@ -57,11 +61,11 @@ const MagneticButton = ({ children }) => {
       button.removeEventListener('mousemove', handleMouseMove);
       button.removeEventListener('mouseout', handleMouseOut);
     };
-  }, []);
+  }, [resetToCenter]);
 
   return (
-    <div className={'magnetic-button h-40 max-w-[200px] flex relative'} ref={buttonRef}>
-      <div ref={contentRef} className={'h-50 max-w-[200px] absolute'}>
+    <div className="magnetic-button h-auto flex max-w-[150px] justify-center w-full relative cursor-pointer transform-all duration-300" ref={buttonRef}>
+      <div ref={contentRef} className="h-30 w-[150px] absolute flex justify-center items-center">
         {children}
       </div>
     </div>

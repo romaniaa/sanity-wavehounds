@@ -31,7 +31,7 @@ export default function Header() {
     return (
         <header
             className={
-                "w-full p-20 flex items-center shrink-0 light:bg-white dark:bg-dark-blue"
+                "w-full flex items-center shrink-0 light:bg-white dark:bg-dark-blue"
             }
         >
             <MenuBurger />
